@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>jQuery Temp Class Example</title>
+  <style>
+    .test {
+      color: #222;
+    }
+    .test.error {
+      color: #f33;
+    }
+  </style>
+</head>
+<body>
+  <div class="test">aaa</div>
+  <div class="test">bbb</div>
+  <div class="test">ccc</div>
+  <button id="exec">click</button>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="jquery.temp-class.js"></script>
+  <script>
+    $(function () {
+      $('#exec').on('click', function () {
+        $('.test')
+        .tempClass('error', 500, function () {
+          console.info(this, 'done');
+        })
+        .attr('data-test', 'bar');
+      });
+    });
+  </script>
+</body>
+</html>
